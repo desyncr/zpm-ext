@@ -16,10 +16,11 @@ zpm-theme () {
         loc="$loc.zsh-theme"
     fi
 
-    local make_local_clone=true
+    local make_local_clone="--no-local-clone"
     if [[ $url == /* && -z $branch &&
             ( $no_local_clone == true || ! -d $url/.git ) ]]; then
-        make_local_clone=false
+        make_local_clone=""
     fi
+
     zpm-load $url $loc $make_local_clone --branch=$branch --btype=theme
 }
