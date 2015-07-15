@@ -22,5 +22,9 @@ zpm-theme () {
         make_local_clone=""
     fi
 
-    zpm-load $url $loc $make_local_clone --branch=$branch --btype=theme
+    if [[ $branch != "" ]]; then
+        branch="--branch=$branch"
+    fi
+
+    zpm-load $url $loc $make_local_clone $branch --btype=theme
 }
