@@ -25,6 +25,7 @@ function -zpm-cache-package () {
             echo ";\n" >>! "$_ZPM_EXT_CACHE_FILENAME"
 
         elif [[ -d "$line" ]]; then
+            echo "fpath=($line \$fpath);\n" >>! "$_ZPM_EXT_CACHE_FILENAME"
             # load autocompletion
             fpath=($line $fpath)
         fi
@@ -69,7 +70,7 @@ function zpm-cache-clear () {
       echo Nothing deleted.
   fi
 }
--zpm-ext-compadd "zpm-cache-clear"
+-zpm-ext-compadd "cache-clear"
 
 if [ -f "$_ZPM_EXT_CACHE_FILENAME" ] ; then
     source "$_ZPM_EXT_CACHE_FILENAME" # cache exists, load it
