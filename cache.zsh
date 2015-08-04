@@ -75,6 +75,8 @@ function zpm-cache-clear () {
 if [ -f "$_ZPM_EXT_CACHE_FILENAME" ] ; then
     source "$_ZPM_EXT_CACHE_FILENAME" # cache exists, load it
     -zpm-cache-disable "zpm-load"
+    -zpm-cache-disable "zpm-install"
+    -zpm-cache-disable "zpm-theme"
     -zpm-cache-disable "-zpm-load-package" # for themes and other ext using low-level functions
     #-zpm-cache-disable "-zpm-parse-package-query" # to avoid unneeded extra work
 else
