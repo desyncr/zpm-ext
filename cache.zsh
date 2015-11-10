@@ -70,7 +70,7 @@ function zpm-cache-clear () {
       echo Nothing deleted.
   fi
 }
--zpm-ext-compadd "cache-clear"
+-zpm-ext-compadd "cache-clear" "Clears zpm cached items"
 
 if [ -f "$_ZPM_EXT_CACHE_FILENAME" ] ; then
     source "$_ZPM_EXT_CACHE_FILENAME" # cache exists, load it
